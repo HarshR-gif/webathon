@@ -1,32 +1,444 @@
-<section class="fav-authors container mb-5">
-  <h2 class="section-title mb-4">Your Fav Author’s</h2>
-  <div class="row g-4">
-    <div class="col-md-4 position-relative">
-      <div class="author-number">#1</div>
-      <img src="Hero1.jpg" alt="Author 1" class="author-img" />
-      <p class="author-text">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BookVault Landing Page</title>
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f9f1dc;
+      font-family: 'Georgia', serif;
+      color: #4a3c31;
+    }
+    .navbar-brand {
+      font-family: 'Georgia', serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 0.1em;
+      color: #6b4c3b !important;
+    }
+    .navbar-toggler {
+      border: none;
+      font-size: 1.5rem;
+      color: #6b4c3b;
+    }
+    .hero-section {
+      padding: 60px 15px;
+    }
+    .hero-text {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      letter-spacing: 0.05em;
+      font-weight: 400;
+      color: #4a3c31;
+    }
+    .hero-image {
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(107, 76, 59, 0.3);
+      max-width: 100%;
+      height: auto;
+      border: 8px solid #c72c41;
+      transition: transform 0.5s ease;
+    }
+    .hero-image:hover {
+      transform: scale(1.05);
+    }
+    .section-title {
+      background-color: #c72c41;
+      color: #f9f1dc;
+      padding: 8px 15px;
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-bottom: 25px;
+      border-radius: 5px;
+      letter-spacing: 0.1em;
+      font-family: 'Georgia', serif;
+    }
+    .card-custom {
+      background-color: #f9f1dc;
+      border: none;
+      box-shadow: 0 4px 12px rgba(199, 44, 65, 0.3);
+      border-radius: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-custom:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 30px rgba(199, 44, 65, 0.5);
+    }
+    .card-custom img {
+      border-radius: 15px 15px 0 0;
+      max-height: 180px;
+      object-fit: cover;
+    }
+    .card-body {
+      font-family: 'Georgia', serif;
+      font-size: 0.95rem;
+      color: #4a3c31;
+      letter-spacing: 0.03em;
+    }
+    .get-discovered {
+      background-color: #a9d6d1;
+      padding: 40px 15px;
+      border-radius: 15px;
+      margin-bottom: 40px;
+    }
+    .get-discovered .card-custom {
+      background-color: #f9f1dc;
+      box-shadow: 0 4px 12px rgba(107, 76, 59, 0.3);
+    }
+    .fav-authors {
+      margin-bottom: 50px;
+    }
+    .fav-authors .author-number {
+      font-size: 6rem;
+      color: #faf8f5;
+      font-weight: 700;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-family: 'Georgia', serif;
+      user-select: none;
+      opacity: .9;
+    }
+    .fav-authors .author-text {
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+      color: #4a3c31;
+      letter-spacing: 0.03em;
+      margin-left: 80px;
+      margin-top: 10px;
+    }
+    .fav-authors .author-img {
+      width: 100%;
+      max-width: 180px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(107, 76, 59, 0.3);
+      margin-bottom: 15px;
+    }
+    .team-section {
+      font-family: 'Georgia', serif;
+      font-weight: 700;
+      font-size: 3rem;
+      color: #6b4c3b;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .team-member {
+      position: relative;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .team-member img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 6px solid #6b4c3b;
+      box-shadow: 0 0 15px rgba(199, 44, 65, 0.5);
+      transition: transform 0.3s ease;
+    }
+    .team-member img:hover {
+      transform: scale(1.1);
+    }
+    .team-member .name {
+      margin-top: 12px;
+      font-size: 1.2rem;
+      color: #4a3c31;
+      font-weight: 600;
+    }
+    .team-member .role {
+      font-size: 0.9rem;
+      color: #7a6a5a;
+      font-style: italic;
+    }
+    footer {
+      background-color: #6b4c3b;
+      color: #f9f1dc;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+    }
+    /* Animations */
+    .fade-in {
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
+    }
+    .slide-up {
+      animation: slideUp 1s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+    @keyframes slideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-light shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">BookVault</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        &#9776;
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto fw-semibold">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section container d-flex flex-column flex-lg-row align-items-center gap-4 my-5">
+    <div class="hero-text fade-in col-lg-6">
+      <p>
         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
         Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
         when an unknown printer took a galley of type and scrambled it to get.
       </p>
     </div>
-    <div class="col-md-4 position-relative">
-      <div class="author-number">#2</div>
-      <img src="Hero1.jpg" alt="Author 2" class="author-img" />
-      <p class="author-text">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-        when an unknown printer took a galley of type and scrambled it to get.
-      </p>
+    <div class="col-lg-6 text-center">
+      <img src="Hero1.jpg" alt="Reading a book" class="hero-image slide-up" />
     </div>
-    <div class="col-md-4 position-relative">
-      <div class="author-number">#3</div>
-      <img src="Hero1.jpg" alt="Author 3" class="author-img" />
-      <p class="author-text">
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-        when an unknown printer took a galley of type and scrambled it to get.
-      </p>
+  </section>
+
+  <!-- Reader's Choice Section -->
+  
+  <section class="fav-authors container mb-5">
+    <h2 class="section-title mb-4">Your Fav Author’s</h2>
+    <div class="row g-4">
+      <div class="col-md-4 position-relative">
+        <div class="author-number">#1</div>
+        <img src="Hero1.jpg" alt="Author 1" class="author-img" />
+        <p class="author-text">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+          when an unknown printer took a galley of type and scrambled it to get.
+        </p>
+      </div>
+      <div class="col-md-4 position-relative">
+        <div class="author-number">#2</div>
+        <img src="Hero1.jpg" alt="Author 2" class="author-img" />
+        <p class="author-text">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+          when an unknown printer took a galley of type and scrambled it to get.
+        </p>
+      </div>
+      <div class="col-md-4 position-relative">
+        <div class="author-number">#3</div>
+        <img src="Hero1.jpg" alt="Author 3" class="author-img" />
+        <p class="author-text">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+          when an unknown printer took a galley of type and scrambled it to get.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Get Discovered Section -->
+  <section class="get-discovered container text-center mb-5">
+    <h2 class="section-title mb-4">Get Discovered</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card card-custom fade-in">
+          <img src="Hero1.jpg" class="card-img-top" alt="Discover 1" />
+          <div class="card-body">
+            <p>Lorem Ipsum is simply dummy text of the printing.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-custom fade-in" style="animation-delay: 0.2s;">
+          <img src="Hero1.jpg" class="card-img-top" alt="Discover 2" />
+          <div class="card-body">
+            <p>Lorem Ipsum is simply dummy text of the printing.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-custom fade-in" style="animation-delay: 0.4s;">
+          <img src="Hero1.jpg" class="card-img-top" alt="Discover 3" />
+          <div class="card-body">
+            <p>Lorem Ipsum is simply dummy text of the printing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Favorite Authors Section -->
+<!-- Favorite Authors Section -->
+<section class="container mb-5">
+  <div class="section-title">Your Fav Author’s</div>
+  <div class="marquee-container">
+    <div class="marquee-track">
+      <!-- Card Set 1 -->
+      <div class="marquee-content">
+        <!-- Card 1 -->
+        <div class="card card-custom">
+          <img src="Hero1.jpg" class="card-img-top" alt="Book 1" />
+          <div class="card-body">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="card card-custom">
+          <img src="Hero1.jpg" class="card-img-top" alt="Book 2" />
+          <div class="card-body">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="card card-custom">
+          <img src="Hero1.jpg" class="card-img-top" alt="Book 3" />
+          <div class="card-body">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="card card-custom">
+          <img src="Hero1.jpg" class="card-img-top" alt="Book 4" />
+          <div class="card-body">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </div>
+        </div>
+        <!-- Card 5 -->
+        <div class="card card-custom">
+          <img src="Hero1.jpg" class="card-img-top" alt="Book 5" />
+          <div class="card-body">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card Set 2 (Duplicate for seamless loop) -->
+      <div class="marquee-content">
+        <!-- Same cards duplicated -->
+        <div class="card card-custom">
+          <img src="Hero1.jpg" class="card-img-top" alt="Book 1" />
+          <div class="card-body">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </div>
+        </div>
+        <div class="card card-custom">
+          <img src="Hero1.jpg" class="card-img-top" alt="Book 2" />
+          <div class="card-body">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </div>
+        </div>
+        <div class="card card-custom">
+          <img src="Hero1.jpg" class="card-img-top" alt="Book 3" />
+          <div class="card-body">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </div>
+        </div>
+        <div class="card card-custom">
+          <img src="Hero1.jpg" class="card-img-top" alt="Book 4" />
+          <div class="card-body">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </div>
+        </div>
+        <div class="card card-custom">
+          <img src="Hero1.jpg" class="card-img-top" alt="Book 5" />
+          <div class="card-body">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+.marquee-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.marquee-track {
+  display: flex;
+  width: fit-content;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-content {
+  display: flex;
+}
+
+.card-custom {
+  width: 250px;
+  margin-right: 1rem;
+  flex-shrink: 0;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+</style>
+
+
+  <!-- Team Section -->
+  <section class="container text-center mb-5">
+    <h2 class="team-section">Team</h2>
+    <div class="row justify-content-center g-4">
+      <div class="col-6 col-md-3 team-member">
+        <img src="Hero1.jpg" alt="Team Member 1" />
+        <div class="name">Lorem Ipsum i</div>
+      </div>
+      <div class="col-6 col-md-3 team-member">
+        <img src="Hero1.jpg" alt="Team Member 2" />
+        <div class="name">Lorem Ipsum i</div>
+      </div>
+      <div class="col-6 col-md-3 team-member">
+        <img src="Hero1.jpg" alt="Team Member 3" />
+        <div class="name">Lorem Ipsum i</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    FOOTER
+  </footer>
+
+  <!-- Bootstrap JS Bundle CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
