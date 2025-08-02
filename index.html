@@ -2,443 +2,556 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BookVault Landing Page</title>
-  <!-- Bootstrap CSS CDN -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BookVault</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <style>
-    body {
-      background-color: #f9f1dc;
-      font-family: 'Georgia', serif;
-      color: #4a3c31;
-    }
-    .navbar-brand {
-      font-family: 'Georgia', serif;
-      font-weight: 700;
-      font-size: 1.8rem;
-      letter-spacing: 0.1em;
-      color: #6b4c3b !important;
-    }
-    .navbar-toggler {
-      border: none;
-      font-size: 1.5rem;
-      color: #6b4c3b;
-    }
-    .hero-section {
-      padding: 60px 15px;
-    }
-    .hero-text {
-      font-size: 1.2rem;
-      line-height: 1.6;
-      letter-spacing: 0.05em;
-      font-weight: 400;
-      color: #4a3c31;
-    }
-    .hero-image {
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(107, 76, 59, 0.3);
-      max-width: 100%;
-      height: auto;
-      border: 8px solid #c72c41;
-      transition: transform 0.5s ease;
-    }
-    .hero-image:hover {
-      transform: scale(1.05);
-    }
-    .section-title {
-      background-color: #c72c41;
-      color: #f9f1dc;
-      padding: 8px 15px;
-      font-weight: 700;
-      font-size: 1.5rem;
-      margin-bottom: 25px;
-      border-radius: 5px;
-      letter-spacing: 0.1em;
-      font-family: 'Georgia', serif;
-    }
-    .card-custom {
-      background-color: #f9f1dc;
-      border: none;
-      box-shadow: 0 4px 12px rgba(199, 44, 65, 0.3);
-      border-radius: 15px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card-custom:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 30px rgba(199, 44, 65, 0.5);
-    }
-    .card-custom img {
-      border-radius: 15px 15px 0 0;
-      max-height: 180px;
-      object-fit: cover;
-    }
-    .card-body {
-      font-family: 'Georgia', serif;
-      font-size: 0.95rem;
-      color: #4a3c31;
-      letter-spacing: 0.03em;
-    }
-    .get-discovered {
-      background-color: #a9d6d1;
-      padding: 40px 15px;
-      border-radius: 15px;
-      margin-bottom: 40px;
-    }
-    .get-discovered .card-custom {
-      background-color: #f9f1dc;
-      box-shadow: 0 4px 12px rgba(107, 76, 59, 0.3);
-    }
-    .fav-authors {
-      margin-bottom: 50px;
-    }
-    .fav-authors .author-number {
-      font-size: 6rem;
-      color: #faf8f5;
-      font-weight: 700;
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      font-family: 'Georgia', serif;
-      user-select: none;
-      opacity: .9;
-    }
-    .fav-authors .author-text {
-      font-family: 'Georgia', serif;
-      font-size: 1rem;
-      color: #4a3c31;
-      letter-spacing: 0.03em;
-      margin-left: 80px;
-      margin-top: 10px;
-    }
-    .fav-authors .author-img {
-      width: 100%;
-      max-width: 180px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 15px;
-      box-shadow: 0 6px 15px rgba(107, 76, 59, 0.3);
-      margin-bottom: 15px;
-    }
-    .team-section {
-      font-family: 'Georgia', serif;
-      font-weight: 700;
-      font-size: 3rem;
-      color: #6b4c3b;
-      margin-bottom: 30px;
-      text-align: center;
-    }
-    .team-member {
-      position: relative;
-      margin-bottom: 30px;
-      text-align: center;
-    }
-    .team-member img {
-      width: 140px;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 6px solid #6b4c3b;
-      box-shadow: 0 0 15px rgba(199, 44, 65, 0.5);
-      transition: transform 0.3s ease;
-    }
-    .team-member img:hover {
-      transform: scale(1.1);
-    }
-    .team-member .name {
-      margin-top: 12px;
-      font-size: 1.2rem;
-      color: #4a3c31;
-      font-weight: 600;
-    }
-    .team-member .role {
-      font-size: 0.9rem;
-      color: #7a6a5a;
-      font-style: italic;
-    }
-    footer {
-      background-color: #6b4c3b;
-      color: #f9f1dc;
-      text-align: center;
-      padding: 15px 10px;
-      font-size: 0.9rem;
-      letter-spacing: 0.05em;
-    }
-    /* Animations */
-    .fade-in {
-      animation: fadeIn 1s ease forwards;
-      opacity: 0;
-    }
-    .slide-up {
-      animation: slideUp 1s ease forwards;
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
-    }
-    @keyframes slideUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg bg-light shadow-sm sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">BookVault</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        &#9776;
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto fw-semibold">
-          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Team</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-        </ul>
+  <!-- Loader Section -->
+  <div class="loader-section" id="loader-section">
+    <div class="loader-container">
+      <div class="countdown" id="countdown">0 - 100</div>
+      <div class="line-container">
+        <div class="line-bold"></div>
       </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero-section container d-flex flex-column flex-lg-row align-items-center gap-4 my-5">
-    <div class="hero-text fade-in col-lg-6">
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-        when an unknown printer took a galley of type and scrambled it to get.
-      </p>
-    </div>
-    <div class="col-lg-6 text-center">
-      <img src="Hero1.jpg" alt="Reading a book" class="hero-image slide-up" />
-    </div>
-  </section>
-
-  <!-- Reader's Choice Section -->
-  
-  <section class="fav-authors container mb-5">
-    <h2 class="section-title mb-4">Your Fav Author’s</h2>
-    <div class="row g-4">
-      <div class="col-md-4 position-relative">
-        <div class="author-number">#1</div>
-        <img src="Hero1.jpg" alt="Author 1" class="author-img" />
-        <p class="author-text">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-          when an unknown printer took a galley of type and scrambled it to get.
-        </p>
-      </div>
-      <div class="col-md-4 position-relative">
-        <div class="author-number">#2</div>
-        <img src="Hero1.jpg" alt="Author 2" class="author-img" />
-        <p class="author-text">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-          when an unknown printer took a galley of type and scrambled it to get.
-        </p>
-      </div>
-      <div class="col-md-4 position-relative">
-        <div class="author-number">#3</div>
-        <img src="Hero1.jpg" alt="Author 3" class="author-img" />
-        <p class="author-text">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-          when an unknown printer took a galley of type and scrambled it to get.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Get Discovered Section -->
-  <section class="get-discovered container text-center mb-5">
-    <h2 class="section-title mb-4">Get Discovered</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card card-custom fade-in">
-          <img src="Hero1.jpg" class="card-img-top" alt="Discover 1" />
-          <div class="card-body">
-            <p>Lorem Ipsum is simply dummy text of the printing.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card card-custom fade-in" style="animation-delay: 0.2s;">
-          <img src="Hero1.jpg" class="card-img-top" alt="Discover 2" />
-          <div class="card-body">
-            <p>Lorem Ipsum is simply dummy text of the printing.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card card-custom fade-in" style="animation-delay: 0.4s;">
-          <img src="Hero1.jpg" class="card-img-top" alt="Discover 3" />
-          <div class="card-body">
-            <p>Lorem Ipsum is simply dummy text of the printing.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-<!-- Favorite Authors Section -->
-<!-- Favorite Authors Section -->
-<section class="container mb-5">
-  <div class="section-title">Your Fav Author’s</div>
-  <div class="marquee-container">
-    <div class="marquee-track">
-      <!-- Card Set 1 -->
-      <div class="marquee-content">
-        <!-- Card 1 -->
-        <div class="card card-custom">
-          <img src="Hero1.jpg" class="card-img-top" alt="Book 1" />
-          <div class="card-body">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-          </div>
-        </div>
-        <!-- Card 2 -->
-        <div class="card card-custom">
-          <img src="Hero1.jpg" class="card-img-top" alt="Book 2" />
-          <div class="card-body">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-          </div>
-        </div>
-        <!-- Card 3 -->
-        <div class="card card-custom">
-          <img src="Hero1.jpg" class="card-img-top" alt="Book 3" />
-          <div class="card-body">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-          </div>
-        </div>
-        <!-- Card 4 -->
-        <div class="card card-custom">
-          <img src="Hero1.jpg" class="card-img-top" alt="Book 4" />
-          <div class="card-body">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-          </div>
-        </div>
-        <!-- Card 5 -->
-        <div class="card card-custom">
-          <img src="Hero1.jpg" class="card-img-top" alt="Book 5" />
-          <div class="card-body">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-          </div>
-        </div>
+      <div class="main-text" id="main-text">
+        <div class="word" id="word1">YOUR</div>
+        <div class="word" id="word2">WEB EXPERIENCE</div>
+        <div class="word" id="word3">IS LOADING RIGHT <span class="now" id="now-text">NOW</span></div>
       </div>
 
-      <!-- Card Set 2 (Duplicate for seamless loop) -->
-      <div class="marquee-content">
-        <!-- Same cards duplicated -->
-        <div class="card card-custom">
-          <img src="Hero1.jpg" class="card-img-top" alt="Book 1" />
-          <div class="card-body">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-          </div>
-        </div>
-        <div class="card card-custom">
-          <img src="Hero1.jpg" class="card-img-top" alt="Book 2" />
-          <div class="card-body">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-          </div>
-        </div>
-        <div class="card card-custom">
-          <img src="Hero1.jpg" class="card-img-top" alt="Book 3" />
-          <div class="card-body">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-          </div>
-        </div>
-        <div class="card card-custom">
-          <img src="Hero1.jpg" class="card-img-top" alt="Book 4" />
-          <div class="card-body">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-          </div>
-        </div>
-        <div class="card card-custom">
-          <img src="Hero1.jpg" class="card-img-top" alt="Book 5" />
-          <div class="card-body">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-          </div>
-        </div>
+      <div class="bottom-text">
+        Please wait<br>a few seconds.
+      </div>
+      <div class="line-container" style="margin-top: 1rem;">
+        <div class="line-thin"></div>
       </div>
     </div>
+    <div class="black-overlay" id="black-overlay"></div>
   </div>
-</section>
 
-<style>
-.marquee-container {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-
-.marquee-track {
-  display: flex;
-  width: fit-content;
-  animation: marquee 30s linear infinite;
-}
-
-.marquee-content {
-  display: flex;
-}
-
-.card-custom {
-  width: 250px;
-  margin-right: 1rem;
-  flex-shrink: 0;
-  border-radius: 12px;
-  border: 1px solid #ccc;
-  background: #fff;
-}
-
-@keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-</style>
-
-
-  <!-- Team Section -->
-  <section class="container text-center mb-5">
-    <h2 class="team-section">Team</h2>
-    <div class="row justify-content-center g-4">
-      <div class="col-6 col-md-3 team-member">
-        <img src="Hero1.jpg" alt="Team Member 1" />
-        <div class="name">Lorem Ipsum i</div>
+  <!-- Navbar -->
+  <div class="position-relative">
+    <div class="logo-box">
+      <img src="logo.png" alt="logo"/>
+      <span class="logo-text">BOOKVAULT</span>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link active" href="#h">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#r">Reader's Choice</a></li>
+            <li class="nav-item"><a class="nav-link" href="#g">Get Discovered</a></li>
+            <li class="nav-item"><a class="nav-link" href="#a">Authors Info</a></li>
+            <li class="nav-item"><a class="nav-link" href="#t">Team</a></li>
+          </ul>
+          <button class="btn btn-orange ms-3">Subscribe</button>
+          <button class="btn btn-orange ms-3">Login</button>
+        </div>
       </div>
-      <div class="col-6 col-md-3 team-member">
-        <img src="Hero1.jpg" alt="Team Member 2" />
-        <div class="name">Lorem Ipsum i</div>
+    </nav>
+  </div>
+
+  <!-- Hero Section Carousel -->
+  <div id="bookHeroCarousel" class="carousel slide" data-bs-ride="carousel" style="position: relative;">
+    <div class="carousel-inner">
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="hero" style="background-image: url('book1.jpg');">
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <h5>What Readers Love</h5>
+            <h1>Explore, Read & Rise</h1>
+            <p>Discover compelling reads, connect with authors, and elevate your literary journey with BookVault.</p>
+            <button class="btn btn-orange mt-3">Browse Library</button>
+          </div>
+        </div>
       </div>
-      <div class="col-6 col-md-3 team-member">
-        <img src="Hero1.jpg" alt="Team Member 3" />
-        <div class="name">Lorem Ipsum i</div>
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <div class="hero" style="background-image: url('book2.jpg');">
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <h5>FIND YOUR NEXT FAVORITE</h5>
+            <h1>Stories That Stay With You</h1>
+            <p>Whether you're into fantasy, thrillers, or romance, BookVault has something unforgettable for everyone.</p>
+            <button class="btn btn-orange mt-3">Top Reads</button>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+        <div class="hero" style="background-image: url('book3.jpg');">
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <h5>JOIN THE COMMUNITY</h5>
+            <h1>Where Book Lovers Belong</h1>
+            <p>Connect with fellow readers, share reviews, and dive into discussions that matter.</p>
+            <button class="btn btn-orange mt-3">Join Now</button>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 4 -->
+      <div class="carousel-item">
+        <div class="hero" style="background-image: url('book4.jpg');">
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <h5>DISCOVER NEW VOICES</h5>
+            <h1>Support Indie Authors</h1>
+            <p>Explore fresh, powerful storytelling from rising writers featured exclusively on BookVault.</p>
+            <button class="btn btn-orange mt-3">Join Now</button>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
 
-  <!-- Footer -->
-  <footer>
-    FOOTER
-  </footer>
+    <!--Readers Choice-->
+    <section id="r" class="readers-choice">
+      <div class="grid">
+        <!-- Text -->
+        <div class="text-card">
+          <h1>Reader's Choice</h1>
+          <h2>Your Favorite Stories Voted by You</h2>
+          <h3>From heart-stopping romance to unforgettable characters, these bestselling reads have captured your imagination and your hearts
+    Discover the voices that moved you, the plots that kept you turning pages, and the books that stayed with you long after the last chapter</h3>
+        </div>
+        <!-- It Ends With Us -->
+        <div class="card">
+          <img src="End with Us.jpg" alt="It Ends With Us">
+          <div class="badge">#1 Trending</div>
+          <div class="summary">Genre: Romance / Contemporary Fiction.<br>
+            A powerful story of love, heartbreak, and resilience that has become a BookTok staple.</div>
+          <div class="title">It Ends With Us</div>
+        </div>
+        <!-- Fourth Wing -->
+        <div class="card">
+          <img src="Fourth Wing.jpg" alt="Fourth Wing">
+           <div class="badge">#1 Trending</div>
+          <div class="summary">Genre: Historical Fiction / Drama.<br>
+            A glamorous yet emotional tale of an aging Hollywood icon and the secrets of her life.</div>
+          <div class="title">The Seven Husbands of Evelyn Hugo</div>
+        </div>
+        <!-- Fourth Wing -->
+        <div class="card">
+          <img src="Fourth Wing.jpg" alt="The Women">
+           <div class="badge">#1 Trending</div>
+               <div class="summary">Genre: Fantasy / Romance.<br>
+                A dragon-riding academy with deadly trials and sizzling tension — the fantasy obsession of TikTok.</div>
+          <div class="title">Fourth Wing</div>
+        </div>
+        <!-- Verity -->
+        <div class="card">
+          <img src="Verity.jpg" alt="Where the Crawdads Sing">
+           <div class="badge">#1 Trending</div>
+          <div class="summary">Genre: Psychological Thriller.<br>
+            Dark, twisted, and absolutely addictive — a haunting story that keeps readers up all night.</div>
+          <div class="title">Verity</div>
+        </div>
+        <!-- Atomic Habits -->
+        <div class="card">
+          <img src="Atomic Habits.jpg" alt="Lessons in Chemistry">
+           <div class="badge">#1 Trending</div>
+          <div class="summary">Genre: Self-Help / Productivity.<br>
+            A life-changing guide to building better habits — practical, motivating, and widely shared on BookTok.</div>
+          <div class="title">Atomic Habits</div>
+        </div>
+        
+      </div>
+    </section>
 
-  <!-- Bootstrap JS Bundle CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <!-- Authors Section -->
+    <section id="a" class="authors-section">
+      <h2 style="text-align: center;">Meet the Authors</h2>
+      <div class="author-row">
+        <!-- Colleen Hoover -->
+        <div class="author-card">
+          <div class="author-pic-container">
+            <img class="author-pic" src="authors1.jpg" alt="Colleen Hoover">
+          </div>
+          <div class="author-info">
+            <h3>Colleen Hoover</h3>
+            <p>#1 NYT bestselling author. Notable works: It Ends With Us, Verity, Reminders of Him. Known for emotionally intense romance and psychological twists.</p>
+          </div>
+        </div>
+
+        <!-- Sally Rooney -->
+        <div class="author-card">
+          <div class="author-pic-container">
+            <img class="author-pic" src="authors2.jpg" alt="Sally Rooney">
+          </div>
+          <div class="author-info">
+            <h3>Sally Rooney</h3>
+            <p>Author of Normal People and Conversations with Friends. Renowned for capturing the quiet complexities of modern relationships.</p>
+          </div>
+        </div>
+
+        <!-- Alex Michaelides -->
+        <div class="author-card">
+          <div class="author-pic-container">
+            <img class="author-pic" src="authors5.jpg" alt="Alex Michaelides">
+          </div>
+          <div class="author-info">
+            <h3>Alex Michaelides</h3>
+            <p>Alex Michaelides is a British–Cypriot author and former screenwriter whose gripping psychological thrillers have achieved widespread acclaim.</p>
+          </div>
+        </div>
+        
+        <!-- Torrey Peters -->
+        <div class="author-card">
+          <div class="author-pic-container">
+            <img class="author-pic" src="authors3.jpg" alt="Torrey Peters">
+          </div>
+          <div class="author-info">
+            <h3>Torrey Peters</h3>
+            <p>Author of Normal People and Conversations with Friends. Renowned for capturing the quiet complexities of modern relationships.</p>
+          </div>
+        </div>
+
+        <!-- Kiran Desai -->
+        <div class="author-card">
+          <div class="author-pic-container">
+            <img class="author-pic" src="authors4.jpg" alt="Kiran Desai">
+          </div>
+          <div class="author-info">
+            <h3>Kiran Desai</h3>
+            <p>Booker Prize–winning author of The Inheritance of Loss. Blends wit and depth in stories of migration, memory, and belonging.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Furniture Collection Gallery -->
+    <section class="gallery">
+      <div class="container">
+        <header class="header">
+          <h1>Furniture Collection</h1>
+          <p>Discover our curated selection of modern furniture and home decor</p>
+        </header>
+
+        <div class="image-grid">
+          <!-- Main featured image (large) with slideshow -->
+          <div class="grid-item featured">
+            <div class="image-container">
+              <div class="featured-slideshow">
+                <div class="slideshow-item active" data-slide="0">
+                  <img src="images/Slide1.jpg" alt="Living Room Scene" class="main-image">
+                  <div class="image-overlay">
+                    <h3>Living Room Collection</h3>
+                    <p>Modern comfort meets timeless design</p>
+                  </div>
+                </div>
+                <div class="slideshow-item" data-slide="1">
+                  <img src="images/Slide2.jpg" alt="Chair Design" class="main-image">
+                  <div class="image-overlay">
+                    <h3>Classic Chair</h3>
+                    <p>Elegant wooden design</p>
+                  </div>
+                </div>
+                <div class="slideshow-item" data-slide="2">
+                  <img src="images/Slide3.jpg" alt="Sofa Collection" class="main-image">
+                  <div class="image-overlay">
+                    <h3>Golden Oska Sofa</h3>
+                    <p>$250 - Premium comfort</p>
+                  </div>
+                </div>
+                <div class="slideshow-item" data-slide="3">
+                  <img src="images/Slide4.jpg" alt="Chair & Sofa Category" class="main-image">
+                  <div class="image-overlay">
+                    <h3>CHAIR & SOFA</h3>
+                    <p>Complete seating solutions</p>
+                  </div>
+                </div>
+                <div class="slideshow-item" data-slide="4">
+                  <img src="images/Slide5.jpg" alt="Stool and Plant" class="main-image">
+                  <div class="image-overlay">
+                    <h3>Organic Stool</h3>
+                    <p>Natural materials & design</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slideshow controls -->
+              <div class="slideshow-controls">
+                <button class="slideshow-btn prev">‹</button>
+                <div class="slideshow-dots">
+                  <span class="slideshow-dot active" data-slide="0"></span>
+                  <span class="slideshow-dot" data-slide="1"></span>
+                  <span class="slideshow-dot" data-slide="2"></span>
+                  <span class="slideshow-dot" data-slide="3"></span>
+                  <span class="slideshow-dot" data-slide="4"></span>
+                </div>
+                <button class="slideshow-btn next">›</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Secondary images (medium) -->
+          <div class="grid-item medium">
+            <div class="image-container">
+              <img src="images/Slide2.jpg" alt="Chair Design" class="grid-image">
+              <div class="image-overlay">
+                <h4>Classic Chair</h4>
+                <p>Elegant wooden design</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-item medium">
+            <div class="image-container">
+              <img src="images/Slide3.jpg" alt="Sofa Collection" class="grid-image">
+              <div class="image-overlay">
+                <h4>Golden Oska Sofa</h4>
+                <p>$250</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Small images -->
+          <div class="grid-item small">
+            <div class="image-container">
+              <img src="images/Slide4.jpg" alt="Chair & Sofa Category" class="grid-image">
+              <div class="image-overlay">
+                <h4>CHAIR & SOFA</h4>
+                <button class="shop-btn">SHOP NOW</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-item small">
+            <div class="image-container">
+              <img src="images/Slide5.jpg" alt="Stool and Plant" class="grid-image">
+              <div class="image-overlay">
+                <h4>Organic Stool</h4>
+                <p>Natural materials</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="image-grid">
+          <!-- Main featured image (large) with slideshow -->
+          <div class="grid-item featured">
+            <div class="image-container">
+              <div class="featured-slideshow">
+                <div class="slideshow-item active" data-slide="0">
+                  <img src="images/Slide1.jpg" alt="Living Room Scene" class="main-image">
+                  <div class="image-overlay">
+                    <h3>Living Room Collection</h3>
+                    <p>Modern comfort meets timeless design</p>
+                  </div>
+                </div>
+                <div class="slideshow-item" data-slide="1">
+                  <img src="images/Slide2.jpg" alt="Chair Design" class="main-image">
+                  <div class="image-overlay">
+                    <h3>Classic Chair</h3>
+                    <p>Elegant wooden design</p>
+                  </div>
+                </div>
+                <div class="slideshow-item" data-slide="2">
+                  <img src="images/Slide3.jpg" alt="Sofa Collection" class="main-image">
+                  <div class="image-overlay">
+                    <h3>Golden Oska Sofa</h3>
+                    <p>$250 - Premium comfort</p>
+                  </div>
+                </div>
+                <div class="slideshow-item" data-slide="3">
+                  <img src="images/Slide4.jpg" alt="Chair & Sofa Category" class="main-image">
+                  <div class="image-overlay">
+                    <h3>CHAIR & SOFA</h3>
+                    <p>Complete seating solutions</p>
+                  </div>
+                </div>
+                <div class="slideshow-item" data-slide="4">
+                  <img src="images/Slide5.jpg" alt="Stool and Plant" class="main-image">
+                  <div class="image-overlay">
+                    <h3>Organic Stool</h3>
+                    <p>Natural materials & design</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slideshow controls -->
+              <div class="slideshow-controls">
+                <button class="slideshow-btn prev">‹</button>
+                <div class="slideshow-dots">
+                  <span class="slideshow-dot active" data-slide="0"></span>
+                  <span class="slideshow-dot" data-slide="1"></span>
+                  <span class="slideshow-dot" data-slide="2"></span>
+                  <span class="slideshow-dot" data-slide="3"></span>
+                  <span class="slideshow-dot" data-slide="4"></span>
+                </div>
+                <button class="slideshow-btn next">›</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Secondary images (medium) -->
+          <div class="grid-item medium">
+            <div class="image-container">
+              <img src="images/Slide2.jpg" alt="Chair Design" class="grid-image">
+              <div class="image-overlay">
+                <h4>Classic Chair</h4>
+                <p>Elegant wooden design</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-item medium">
+            <div class="image-container">
+              <img src="images/Slide3.jpg" alt="Sofa Collection" class="grid-image">
+              <div class="image-overlay">
+                <h4>Golden Oska Sofa</h4>
+                <p>$250</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Small images -->
+          <div class="grid-item small">
+            <div class="image-container">
+              <img src="images/Slide4.jpg" alt="Chair & Sofa Category" class="grid-image">
+              <div class="image-overlay">
+                <h4>CHAIR & SOFA</h4>
+                <button class="shop-btn">SHOP NOW</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-item small">
+            <div class="image-container">
+              <img src="images/Slide5.jpg" alt="Stool and Plant" class="grid-image">
+              <div class="image-overlay">
+                <h4>Organic Stool</h4>
+                <p>Natural materials</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- New Launches Section -->
+    <section class="fashion-grid-section">
+      <div class="fashion-grid-header">
+        <h2>READ NEW LAUNCHES FOR FREE!!</h2>
+        <p>Let's Discover The Undiscovered</p>
+      </div>
+    </section>
+
+    <!-- Marquee Grid Section -->
+    <section class="marquee-wrapper">
+      <div class="marquee-content">
+        <div class="grid-item">
+          <img src="2.jpeg" alt="New Book 1">
+        </div>
+        <div class="grid-item">
+          <img src="2.jpeg" alt="New Book 2">
+        </div>
+        <div class="grid-item">
+          <img src="2.jpeg" alt="New Book 3">
+        </div>
+        <div class="grid-item">
+          <img src="2.jpeg" alt="New Book 4">
+        </div>
+        <div class="grid-item">
+          <img src="2.jpeg" alt="New Book 5">
+        </div>
+        <div class="grid-item">
+          <img src="2.jpeg" alt="New Book 6">
+        </div>
+        <!-- Duplicate items for seamless looping -->
+        <div class="grid-item">
+          <img src="2.jpeg" alt="New Book 1">
+        </div>
+        <div class="grid-item">
+          <img src="2.jpeg" alt="New Book 2">
+        </div>
+        <div class="grid-item">
+          <img src="2.jpeg" alt="New Book 3">
+        </div>
+        <div class="grid-item">
+          <img src="2.jpeg" alt="New Book 4">
+        </div>
+        <div class="grid-item">
+          <img src="2.jpeg" alt="New Book 5">
+        </div>
+        <div class="grid-item">
+          <img src="2.jpeg" alt="New Book 6">
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="t" class="team-section">
+      <div class="container">
+        <h1 class="team-title">Our Team</h1>
+        <div class="team-list">
+          <div class="team-member">
+            <div class="member-number">01</div>
+            <div class="member-name">Sarah Johnson</div>
+            <div class="member-role">Founder & CEO</div>
+            <div class="member-popup">
+              <img src="team1.jpg" alt="Sarah Johnson" class="popup-image">
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="member-number">02</div>
+            <div class="member-name">Michael Chen</div>
+            <div class="member-role">Head of Technology</div>
+            <div class="member-popup">
+              <img src="team2.jpg" alt="Michael Chen" class="popup-image">
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="member-number">03</div>
+            <div class="member-name">Emily Rodriguez</div>
+            <div class="member-role">Creative Director</div>
+            <div class="member-popup">
+              <img src="team3.jpg" alt="Emily Rodriguez" class="popup-image">
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="member-number">04</div>
+            <div class="member-name">David Kim</div>
+            <div class="member-role">Marketing Manager</div>
+            <div class="member-popup">
+              <img src="team4.jpg" alt="David Kim" class="popup-image">
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="member-number">05</div>
+            <div class="member-name">Lisa Thompson</div>
+            <div class="member-role">Content Curator</div>
+            <div class="member-popup">
+              <img src="team5.jpg" alt="Lisa Thompson" class="popup-image">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cookie Consent -->
+    <div class="cookie-consent">
+      <div class="cookie-content">
+        <p>We use cookies to enhance your browsing experience and analyze our traffic. By clicking "Accept", you consent to our use of cookies.</p>
+        <div class="cookie-buttons">
+          <button class="btn-decline">Decline</button>
+          <button class="btn-accept">Accept</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      &copy; 2025 BookVault. All rights reserved.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html> 
