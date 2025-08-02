@@ -1596,8 +1596,34 @@
       // Marquee and other interactive JS can be added here if needed
       // (For the marquee, CSS handles the animation. If you want to pause on hover, it's already handled in CSS.)
 
-      // Furniture Gallery Slideshow Functionality
       document.addEventListener('DOMContentLoaded', function() {
+        const cookieConsent = document.querySelector('.cookie-consent');
+        const acceptBtn = document.querySelector('.btn-accept');
+        const declineBtn = document.querySelector('.btn-decline');
+
+        // Function to hide cookie consent
+        function hideCookieConsent() {
+          cookieConsent.style.display = 'none';
+        }
+
+        // Event listeners for accept and decline buttons
+        if (acceptBtn) {
+          acceptBtn.addEventListener('click', function() {
+            // You can add logic here to save the user's acceptance
+            console.log('Cookies accepted');
+            hideCookieConsent();
+          });
+        }
+
+        if (declineBtn) {
+          declineBtn.addEventListener('click', function() {
+            // You can add logic here to handle the user's decline
+            console.log('Cookies declined');
+            hideCookieConsent();
+          });
+        }
+
+        // Furniture Gallery Slideshow Functionality
         const slideshows = document.querySelectorAll('.featured-slideshow');
         
         slideshows.forEach(function(slideshow) {
