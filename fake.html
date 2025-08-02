@@ -64,9 +64,9 @@
       background-color: #f9a048;
       padding: 15px;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
-      width: 140px;
+      width: 300px;
       z-index: 11;
       height: 160px;
     }
@@ -82,6 +82,18 @@
       color: white;
       font-weight: bold;
       font-size: 1rem;
+    }
+
+    .logo-text {
+      color: #333 !important;
+      font-weight: 900 !important;
+      font-size: 1.8rem !important;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-left: 15px;
+      font-family: 'Arial Black', sans-serif;
+      display: inline-block;
+      vertical-align: middle;
     }
 
     /* Hero Section */
@@ -849,6 +861,25 @@
     }
 
     /* Responsive Design */
+    @media (max-width: 1024px) {
+      .readers-choice .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+
+      .text-card h1 {
+        font-size: 36px;
+      }
+
+      .text-card h2 {
+        font-size: 26px;
+      }
+
+      .text-card h3 {
+        font-size: 18px;
+      }
+    }
+
     @media (max-width: 768px) {
       .hero h1 {
         font-size: 2rem;
@@ -861,6 +892,40 @@
 
       .grid {
         grid-template-columns: 1fr;
+      }
+
+      /* Reader's Choice Responsive */
+      .readers-choice {
+        padding: 40px 15px;
+      }
+
+      .readers-choice .grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .text-card h1 {
+        font-size: 32px;
+        text-align: center;
+      }
+
+      .text-card h2 {
+        font-size: 24px;
+        text-align: center;
+      }
+
+      .text-card h3 {
+        font-size: 16px;
+        text-align: center;
+      }
+
+      .card img {
+        height: 250px;
+      }
+
+      .title {
+        font-size: 18px;
+        margin: 20px 10px 10px;
       }
 
       .author-row {
@@ -926,6 +991,37 @@
       .team-title {
         font-size: 2rem;
       }
+
+      /* Reader's Choice Mobile Responsive */
+      .readers-choice {
+        padding: 30px 10px;
+      }
+
+      .text-card h1 {
+        font-size: 28px;
+      }
+
+      .text-card h2 {
+        font-size: 20px;
+      }
+
+      .text-card h3 {
+        font-size: 14px;
+      }
+
+      .card img {
+        height: 200px;
+      }
+
+      .title {
+        font-size: 16px;
+        margin: 15px 8px 8px;
+      }
+
+      .badge {
+        font-size: 10px;
+        padding: 3px 6px;
+      }
     }
 
     /* Animation for page load */
@@ -967,6 +1063,7 @@
   <div class="position-relative">
     <div class="logo-box">
       <img src="logo.png" alt="logo"/>
+      <span class="logo-text">BOOKVAULT</span>
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container-fluid">
@@ -1053,6 +1150,60 @@
       </div>
     </div>
 
+    <!--Readers Choice-->
+    <section id="r" class="readers-choice">
+      <div class="grid">
+        <!-- Text -->
+        <div class="text-card">
+          <h1>Reader's Choice</h1>
+          <h2>Your Favorite Stories Voted by You</h2>
+          <h3>From heart-stopping romance to unforgettable characters, these bestselling reads have captured your imagination and your hearts
+    Discover the voices that moved you, the plots that kept you turning pages, and the books that stayed with you long after the last chapter</h3>
+        </div>
+        <!-- It Ends With Us -->
+        <div class="card">
+          <img src="End with Us.jpg" alt="It Ends With Us">
+          <div class="badge">#1 Trending</div>
+          <div class="summary">Genre: Romance / Contemporary Fiction.<br>
+            A powerful story of love, heartbreak, and resilience that has become a BookTok staple.</div>
+          <div class="title">It Ends With Us</div>
+        </div>
+        <!-- Fourth Wing -->
+        <div class="card">
+          <img src="Fourth Wing.jpg" alt="Fourth Wing">
+           <div class="badge">#1 Trending</div>
+          <div class="summary">Genre: Historical Fiction / Drama.<br>
+            A glamorous yet emotional tale of an aging Hollywood icon and the secrets of her life.</div>
+          <div class="title">The Seven Husbands of Evelyn Hugo</div>
+        </div>
+        <!-- Fourth Wing -->
+        <div class="card">
+          <img src="Fourth Wing.jpg" alt="The Women">
+           <div class="badge">#1 Trending</div>
+               <div class="summary">Genre: Fantasy / Romance.<br>
+                A dragon-riding academy with deadly trials and sizzling tension — the fantasy obsession of TikTok.</div>
+          <div class="title">Fourth Wing</div>
+        </div>
+        <!-- Verity -->
+        <div class="card">
+          <img src="Verity.jpg" alt="Where the Crawdads Sing">
+           <div class="badge">#1 Trending</div>
+          <div class="summary">Genre: Psychological Thriller.<br>
+            Dark, twisted, and absolutely addictive — a haunting story that keeps readers up all night.</div>
+          <div class="title">Verity</div>
+        </div>
+        <!-- Atomic Habits -->
+        <div class="card">
+          <img src="Atomic Habits.jpg" alt="Lessons in Chemistry">
+           <div class="badge">#1 Trending</div>
+          <div class="summary">Genre: Self-Help / Productivity.<br>
+            A life-changing guide to building better habits — practical, motivating, and widely shared on BookTok.</div>
+          <div class="title">Atomic Habits</div>
+        </div>
+        
+      </div>
+    </section>
+
     <!-- Authors Section -->
     <section id="a" class="authors-section">
       <h2 style="text-align: center;">Meet the Authors</h2>
@@ -1109,6 +1260,216 @@
           <div class="author-info">
             <h3>Kiran Desai</h3>
             <p>Booker Prize–winning author of The Inheritance of Loss. Blends wit and depth in stories of migration, memory, and belonging.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Furniture Collection Gallery -->
+    <section class="gallery">
+      <div class="container">
+        <header class="header">
+          <h1>Furniture Collection</h1>
+          <p>Discover our curated selection of modern furniture and home decor</p>
+        </header>
+
+        <div class="image-grid">
+          <!-- Main featured image (large) with slideshow -->
+          <div class="grid-item featured">
+            <div class="image-container">
+              <div class="featured-slideshow">
+                <div class="slideshow-item active" data-slide="0">
+                  <img src="images/Slide1.jpg" alt="Living Room Scene" class="main-image">
+                  <div class="image-overlay">
+                    <h3>Living Room Collection</h3>
+                    <p>Modern comfort meets timeless design</p>
+                  </div>
+                </div>
+                <div class="slideshow-item" data-slide="1">
+                  <img src="images/Slide2.jpg" alt="Chair Design" class="main-image">
+                  <div class="image-overlay">
+                    <h3>Classic Chair</h3>
+                    <p>Elegant wooden design</p>
+                  </div>
+                </div>
+                <div class="slideshow-item" data-slide="2">
+                  <img src="images/Slide3.jpg" alt="Sofa Collection" class="main-image">
+                  <div class="image-overlay">
+                    <h3>Golden Oska Sofa</h3>
+                    <p>$250 - Premium comfort</p>
+                  </div>
+                </div>
+                <div class="slideshow-item" data-slide="3">
+                  <img src="images/Slide4.jpg" alt="Chair & Sofa Category" class="main-image">
+                  <div class="image-overlay">
+                    <h3>CHAIR & SOFA</h3>
+                    <p>Complete seating solutions</p>
+                  </div>
+                </div>
+                <div class="slideshow-item" data-slide="4">
+                  <img src="images/Slide5.jpg" alt="Stool and Plant" class="main-image">
+                  <div class="image-overlay">
+                    <h3>Organic Stool</h3>
+                    <p>Natural materials & design</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slideshow controls -->
+              <div class="slideshow-controls">
+                <button class="slideshow-btn prev">‹</button>
+                <div class="slideshow-dots">
+                  <span class="slideshow-dot active" data-slide="0"></span>
+                  <span class="slideshow-dot" data-slide="1"></span>
+                  <span class="slideshow-dot" data-slide="2"></span>
+                  <span class="slideshow-dot" data-slide="3"></span>
+                  <span class="slideshow-dot" data-slide="4"></span>
+                </div>
+                <button class="slideshow-btn next">›</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Secondary images (medium) -->
+          <div class="grid-item medium">
+            <div class="image-container">
+              <img src="images/Slide2.jpg" alt="Chair Design" class="grid-image">
+              <div class="image-overlay">
+                <h4>Classic Chair</h4>
+                <p>Elegant wooden design</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-item medium">
+            <div class="image-container">
+              <img src="images/Slide3.jpg" alt="Sofa Collection" class="grid-image">
+              <div class="image-overlay">
+                <h4>Golden Oska Sofa</h4>
+                <p>$250</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Small images -->
+          <div class="grid-item small">
+            <div class="image-container">
+              <img src="images/Slide4.jpg" alt="Chair & Sofa Category" class="grid-image">
+              <div class="image-overlay">
+                <h4>CHAIR & SOFA</h4>
+                <button class="shop-btn">SHOP NOW</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-item small">
+            <div class="image-container">
+              <img src="images/Slide5.jpg" alt="Stool and Plant" class="grid-image">
+              <div class="image-overlay">
+                <h4>Organic Stool</h4>
+                <p>Natural materials</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="image-grid">
+          <!-- Main featured image (large) with slideshow -->
+          <div class="grid-item featured">
+            <div class="image-container">
+              <div class="featured-slideshow">
+                <div class="slideshow-item active" data-slide="0">
+                  <img src="images/Slide1.jpg" alt="Living Room Scene" class="main-image">
+                  <div class="image-overlay">
+                    <h3>Living Room Collection</h3>
+                    <p>Modern comfort meets timeless design</p>
+                  </div>
+                </div>
+                <div class="slideshow-item" data-slide="1">
+                  <img src="images/Slide2.jpg" alt="Chair Design" class="main-image">
+                  <div class="image-overlay">
+                    <h3>Classic Chair</h3>
+                    <p>Elegant wooden design</p>
+                  </div>
+                </div>
+                <div class="slideshow-item" data-slide="2">
+                  <img src="images/Slide3.jpg" alt="Sofa Collection" class="main-image">
+                  <div class="image-overlay">
+                    <h3>Golden Oska Sofa</h3>
+                    <p>$250 - Premium comfort</p>
+                  </div>
+                </div>
+                <div class="slideshow-item" data-slide="3">
+                  <img src="images/Slide4.jpg" alt="Chair & Sofa Category" class="main-image">
+                  <div class="image-overlay">
+                    <h3>CHAIR & SOFA</h3>
+                    <p>Complete seating solutions</p>
+                  </div>
+                </div>
+                <div class="slideshow-item" data-slide="4">
+                  <img src="images/Slide5.jpg" alt="Stool and Plant" class="main-image">
+                  <div class="image-overlay">
+                    <h3>Organic Stool</h3>
+                    <p>Natural materials & design</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slideshow controls -->
+              <div class="slideshow-controls">
+                <button class="slideshow-btn prev">‹</button>
+                <div class="slideshow-dots">
+                  <span class="slideshow-dot active" data-slide="0"></span>
+                  <span class="slideshow-dot" data-slide="1"></span>
+                  <span class="slideshow-dot" data-slide="2"></span>
+                  <span class="slideshow-dot" data-slide="3"></span>
+                  <span class="slideshow-dot" data-slide="4"></span>
+                </div>
+                <button class="slideshow-btn next">›</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Secondary images (medium) -->
+          <div class="grid-item medium">
+            <div class="image-container">
+              <img src="images/Slide2.jpg" alt="Chair Design" class="grid-image">
+              <div class="image-overlay">
+                <h4>Classic Chair</h4>
+                <p>Elegant wooden design</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-item medium">
+            <div class="image-container">
+              <img src="images/Slide3.jpg" alt="Sofa Collection" class="grid-image">
+              <div class="image-overlay">
+                <h4>Golden Oska Sofa</h4>
+                <p>$250</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Small images -->
+          <div class="grid-item small">
+            <div class="image-container">
+              <img src="images/Slide4.jpg" alt="Chair & Sofa Category" class="grid-image">
+              <div class="image-overlay">
+                <h4>CHAIR & SOFA</h4>
+                <button class="shop-btn">SHOP NOW</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-item small">
+            <div class="image-container">
+              <img src="images/Slide5.jpg" alt="Stool and Plant" class="grid-image">
+              <div class="image-overlay">
+                <h4>Organic Stool</h4>
+                <p>Natural materials</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1234,6 +1595,60 @@
     <script>
       // Marquee and other interactive JS can be added here if needed
       // (For the marquee, CSS handles the animation. If you want to pause on hover, it's already handled in CSS.)
+
+      // Furniture Gallery Slideshow Functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const slideshows = document.querySelectorAll('.featured-slideshow');
+        
+        slideshows.forEach(function(slideshow) {
+          const slides = slideshow.querySelectorAll('.slideshow-item');
+          const dots = slideshow.parentElement.querySelectorAll('.slideshow-dot');
+          const prevBtn = slideshow.parentElement.querySelector('.slideshow-btn.prev');
+          const nextBtn = slideshow.parentElement.querySelector('.slideshow-btn.next');
+          
+          let currentSlide = 0;
+          
+          function showSlide(index) {
+            // Hide all slides
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Show current slide
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+          }
+          
+          function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+          }
+          
+          function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+          }
+          
+          // Event listeners for buttons
+          if (nextBtn) {
+            nextBtn.addEventListener('click', nextSlide);
+          }
+          
+          if (prevBtn) {
+            prevBtn.addEventListener('click', prevSlide);
+          }
+          
+          // Event listeners for dots
+          dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+              currentSlide = index;
+              showSlide(currentSlide);
+            });
+          });
+          
+          // Auto-advance slides every 5 seconds
+          setInterval(nextSlide, 5000);
+        });
+      });
     </script>
   </body>
 </html>
